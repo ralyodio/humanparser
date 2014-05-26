@@ -1,29 +1,33 @@
 {
-    "name": "humanparser",
-    "version": "0.0.2",
-    "description": "Parse a human name string into salutation, first name, middle name, last name, suffix.",
-    "main": "./lib/humanparser.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:chovy/humanparser.git"
-    },
-    "keywords": [
-        "human",
-        "name",
-        "parser",
-        "parse",
-        "fullname",
-        "full name",
-        "first name",
-        "last name",
-        "human name"
-    ],
-    "author": "Anthony Ettinger (chovy)",
-    "license": "MIT",
-    "dependencies": {
-        "underscore": "~1.6.0"
-    }
+  "name": "humanparser",
+  "version": "0.0.3",
+  "description": "Parse a human name string into salutation, first name, middle name, last name, suffix.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chovy/humanparser.git"
+  },
+  "keywords": [
+    "human",
+    "name",
+    "parser",
+    "parse",
+    "fullname",
+    "full name",
+    "first name",
+    "last name",
+    "human name"
+  ],
+  "author": "Anthony Ettinger (chovy)",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "~1.6.0"
+  },
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "mocha": "~1.19.0"
+  }
 }
