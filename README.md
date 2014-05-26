@@ -28,3 +28,6 @@ Parse a human name string into salutation, first name, middle name, last name, s
       lastName: 'Hearst',
       middleName: 'R.',
       fullName: 'Mr. William R. Hearst, III' }
+
+
+The MIT License (MIT)

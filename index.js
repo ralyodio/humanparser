@@ -32,7 +32,8 @@ parser.parseName = function (name) {
         attrs.lastName = parts.pop();
     }
 
-    //test for compound last name
+    // test for compound last name, we reverse because middle name is last bit to be defined.
+    // We already know lastname, so check next word if its part of a compound last name.
     var revParts = parts.reverse()
         , compoundParts = [];
 
