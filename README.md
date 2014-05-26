@@ -1,9 +1,9 @@
 humanparser
 =========
 
-[![Build Status](https://travis-ci.org/chovy/humanparser.svg?branch=master)](https://travis-ci.org/chovy/humanparser)
-
 Parse a human name string into salutation, first name, middle name, last name, suffix.
+
+[![Build Status](https://travis-ci.org/chovy/humanparser.svg?branch=master)](https://travis-ci.org/chovy/humanparser)
 
 ## Install
 
