@@ -1,7 +1,15 @@
-//Matt Rymarski & Julie Schalm
+//TODO: parseName
+//Randy S. Burdette, CAI, CES, CAGA
+//Randy S. Burdette, CAI, CES, CAGA
 //Robert (Bobby) Jones
 
-// First, we require `expect` from Chai.
+//TODO: getUsableName(str, idx)
+//Matt Rymarski & Julie Schalm
+//Ros & Jim Higgins
+//Brent Roberts and Devon Rogers
+//Jim Brashier, Senior Broker Associates
+
+
 var chai = require('chai')
     , expect = chai.expect
     , human = require('..');
@@ -10,7 +18,7 @@ var chai = require('chai')
 describe('Parsing names', function() {
 
     // The tests have an English description...
-    it('Attributes', function() {
+    it('Should have all attributes', function() {
         var name = 'Mr. William R. Jenkins, III'
             , attrs = human.parseName(name);
 
