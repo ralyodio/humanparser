@@ -1,5 +1,7 @@
 deploy:
   language: node_js
+  node_js:
+    - 0.10
   provider: npm
   email: anthony@chovy.com
   api_key:
