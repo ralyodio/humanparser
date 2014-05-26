@@ -76,7 +76,7 @@ describe('Parsing names', function() {
         var name = 'William De Cruz'
             , attrs = human.parseName(name);
 
-        console.log(attrs);
+        //console.log(attrs);
         expect(attrs.salutation).to.be.undefined;
         expect(attrs.firstName).to.be.equal('William');
         expect(attrs.middleName).to.be.undefined;
