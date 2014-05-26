@@ -11,14 +11,14 @@ describe('Parsing names', function() {
 
     // The tests have an English description...
     it('Attributes', function() {
-        var name = 'Mr. Bill R. Jones, Sr.'
+        var name = 'Mr. William R. Jenkins, III'
             , attrs = human.parseName(name);
 
         expect(attrs.salutation).to.be.equal('Mr.');
-        expect(attrs.firstName).to.be.equal('Bill');
+        expect(attrs.firstName).to.be.equal('William');
         expect(attrs.middleName).to.be.equal('R.');
-        expect(attrs.lastName).to.be.equal('Jones');
-        expect(attrs.suffix).to.be.equal('Sr.');
+        expect(attrs.lastName).to.be.equal('Jenkins');
+        expect(attrs.suffix).to.be.equal('III');
         expect(attrs.fullName).to.be.equal(name);
     });
 });
