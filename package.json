@@ -1,0 +1,28 @@
+{
+  "name": "humanparser",
+  "version": "0.0.1",
+  "description": "Get data from a JSON object by path.",
+  "main": "./lib/humanparser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chovy/humanparser.git"
+  },
+  "keywords": [
+    "human",
+    "name",
+    "parser",
+    "parse",
+    "fullname",
+    "full name",
+    "first name",
+    "last name"
+  ],
+  "author": "Anthony Ettinger (chovy)",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "^1.6.0"
+  }
+}
