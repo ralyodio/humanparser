@@ -11,7 +11,7 @@ Parse a human name string into salutation, first name, middle name, last name, s
 
     var human = require('humanparser');
 
-    var fullName = 'Mr. William R. Jenkins, III'
+    var fullName = 'Mr. William R. Hearst, III'
         , attrs = human.parseName(fullName);
 
     console.log(attrs);
@@ -21,6 +21,6 @@ Parse a human name string into salutation, first name, middle name, last name, s
     { saluation: 'Mr.',
       firstName: 'William',
       suffix: 'III',
-      lastName: 'Jenkins',
+      lastName: 'Hearst',
       middleName: 'R.',
-      fullName: 'Mr. William R. Jenkins, III' }
+      fullName: 'Mr. William R. Hearst, III' }

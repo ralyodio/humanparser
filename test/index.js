@@ -72,6 +72,19 @@ describe('Parsing names', function() {
         expect(attrs.fullName).to.be.equal(name);
     });
 
+    it('Should parse compound with all attributes', function(){
+        var name = 'William De Cruz'
+            , attrs = human.parseName(name);
+
+        console.log(attrs);
+        expect(attrs.salutation).to.be.undefined;
+        expect(attrs.firstName).to.be.equal('William');
+        expect(attrs.middleName).to.be.undefined;
+        expect(attrs.lastName).to.be.equal('De Cruz');
+        expect(attrs.suffix).to.be.undefined;
+        expect(attrs.fullName).to.be.equal(name);
+    });
+
     it('Should parse first and last name', function(){
         var name = 'William Hearst'
             , attrs = human.parseName(name);
