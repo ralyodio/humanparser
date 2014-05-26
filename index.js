@@ -32,8 +32,23 @@ parser.parseName = function (name) {
         attrs.lastName = parts.pop();
     }
 
-    if ( parts.length && _.indexOf(compound, _.last(parts).toLowerCase().replace(/\./g, '')) > -1) {
-        attrs.lastName = attrs.lastName + ' ' + parts.pop();
+    //test for compound last name
+    var revParts = parts.reverse()
+        , compoundParts = [];
+
+    _.each(revParts, function(part, i, all){
+        var test = part.toLowerCase().replace(/\./g, '');
+
+        if (_.indexOf(compound, test) > -1 ) {
+            compoundParts.push(part);
+        }
+    });
+
+    //join compound parts with known last name
+    if ( compoundParts.length ) {
+        attrs.lastName = compoundParts.reverse().join(' ') + ' ' + attrs.lastName;
+
+        parts = _.difference(parts, compoundParts);
     }
 
     if ( parts.length ) {
