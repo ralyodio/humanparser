@@ -18,82 +18,81 @@ var chai = require('chai')
 // `describe` makes a "suite" of tests; think of them as a group.
 describe('Parsing names', function() {
 
+    var names = [
+        {
+            name: 'Mr. William R. Hearst, III',
+            result: {
+                salutation: 'Mr.',
+                firstName: 'William',
+                middleName: 'R.',
+                lastName: 'Hearst',
+                suffix: 'III',
+                fullName: 'Mr. William R. Hearst, III'
+            }
+        },{
+            name: 'William Randolph Hearst',
+            result: {
+                firstName: 'William',
+                lastName: 'Hearst',
+                middleName: 'Randolph',
+                fullName: 'William Randolph Hearst'
+            }
+        }, {
+            name: 'William R. De La Cruz',
+            result: {
+                firstName: 'William',
+                lastName: 'De La Cruz',
+                middleName: 'R.',
+                fullName: 'William R. De La Cruz'
+            }
+        }, {
+            name: 'Mr. William R. De La Cruz III',
+            result: {
+                salutation: 'Mr.',
+                firstName: 'William',
+                suffix: 'III',
+                lastName: 'De La Cruz',
+                middleName: 'R.',
+                fullName: 'Mr. William R. De La Cruz III'
+            }
+        }, {
+            name: 'William De Cruz',
+            result: {
+                firstName: 'William',
+                lastName: 'De Cruz',
+                fullName: 'William De Cruz'
+            }
+        }, {
+            name: 'William De La Cruz',
+            result: {
+                firstName: 'William',
+                lastName: 'De La Cruz',
+                fullName: 'William De La Cruz'
+            }
+        }, {
+            name: 'William Hearst',
+            result: {
+                firstName: 'William',
+                lastName: 'Hearst',
+                fullName: 'William Hearst'
+            }
+        }, {
+            name: 'William Hearst Jr',
+            result: {
+                firstName: 'William',
+                suffix: 'Jr',
+                lastName: 'Hearst',
+                fullName: 'William Hearst Jr'
+            }
+        }
+    ];
+
     // The tests have an English description...
     it('Should parse all attributes', function() {
-        var name = 'Mr. William R. Hearst, III'
-            , attrs = human.parseName(name);
+        names.forEach(function(name, i, list){
+            var parsed = human.parseName(name.name);
 
-      //  console.log(attrs);
-
-        expect(attrs.salutation).to.be.equal('Mr.');
-        expect(attrs.firstName).to.be.equal('William');
-        expect(attrs.middleName).to.be.equal('R.');
-        expect(attrs.lastName).to.be.equal('Hearst');
-        expect(attrs.suffix).to.be.equal('III');
-        expect(attrs.fullName).to.be.equal(name);
-    });
-
-    it('Should parse first, middle, last', function(){
-        var name = 'William Randolph Hearst'
-            , attrs = human.parseName(name);
-
-    //    console.log(attrs);
-        expect(attrs.salutation).to.be.undefined;
-        expect(attrs.firstName).to.be.equal('William');
-        expect(attrs.middleName).to.be.equal('Randolph');
-        expect(attrs.lastName).to.be.equal('Hearst');
-        expect(attrs.suffix).to.be.undefined;
-        expect(attrs.fullName).to.be.equal(name);
-    });
-
-    it('Should parse compound last name', function(){
-        var name = 'William R. De La Cruz'
-            , attrs = human.parseName(name);
-
-  //      console.log(attrs);
-        expect(attrs.salutation).to.be.undefined;
-        expect(attrs.firstName).to.be.equal('William');
-        expect(attrs.middleName).to.be.equal('R.');
-        expect(attrs.lastName).to.be.equal('De La Cruz');
-        expect(attrs.suffix).to.be.undefined;
-        expect(attrs.fullName).to.be.equal(name);
-    });
-
-    it('Should parse compound with all attributes', function(){
-        var name = 'Mr. William R. De La Cruz III'
-            , attrs = human.parseName(name);
-
-//        console.log(attrs);
-        expect(attrs.salutation).to.be.equal('Mr.');
-        expect(attrs.firstName).to.be.equal('William');
-        expect(attrs.middleName).to.be.equal('R.');
-        expect(attrs.lastName).to.be.equal('De La Cruz');
-        expect(attrs.suffix).to.be.equal('III');
-        expect(attrs.fullName).to.be.equal(name);
-    });
-
-    it('Should parse compound with all attributes', function(){
-        var name = 'William De Cruz'
-            , attrs = human.parseName(name);
-
-        //console.log(attrs);
-        expect(attrs.salutation).to.be.undefined;
-        expect(attrs.firstName).to.be.equal('William');
-        expect(attrs.middleName).to.be.undefined;
-        expect(attrs.lastName).to.be.equal('De Cruz');
-        expect(attrs.suffix).to.be.undefined;
-        expect(attrs.fullName).to.be.equal(name);
-    });
-
-    it('Should parse first and last name', function(){
-        var name = 'William Hearst'
-            , attrs = human.parseName(name);
-
-        expect(attrs.salutation).to.be.undefined;
-        expect(attrs.firstName).to.be.equal('William');
-        expect(attrs.middleName).to.be.undefined;
-        expect(attrs.lastName).to.be.equal('Hearst');
-        expect(attrs.suffix).to.be.undefined;
-        expect(attrs.fullName).to.be.equal(name);
+            expect(name.result).to.eql(parsed);
+        });
     });
 });
