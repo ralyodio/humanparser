@@ -5,7 +5,7 @@ var parser = module.exports = {};
 parser.parseName = function (name) {
     var salutations = ['mr', 'master', 'mister', 'mrs', 'miss', 'ms', 'dr', 'prof', 'rev', 'fr', 'judge', 'honorable', 'hon']
         , suffixes = ['i', 'ii', 'iii', 'iv', 'v', 'senior', 'junior', 'jr', 'sr', 'phd', 'apr', 'rph', 'pe', 'md', 'ma', 'dmd', 'cme']
-        , compound = ['vere', 'von', 'van', 'de', 'del', 'della', 'di', 'da', 'pietro', 'vanden', 'du', 'st.', 'st', 'la', 'lo', 'ter'];
+        , compound = ['vere', 'von', 'van', 'de', 'del', 'della', 'der', 'di', 'da', 'pietro', 'vanden', 'du', 'st.', 'st', 'la', 'lo', 'ter'];
 
     var parts = name.trim().split(/\s+/)
         , attrs = {};
@@ -37,12 +37,17 @@ parser.parseName = function (name) {
     var revParts = parts.reverse()
         , compoundParts = [];
 
-    _.each(revParts, function(part, i, all){
+    _.every(revParts, function(part, i, all){
         var test = part.toLowerCase().replace(/\./g, '');
 
         if (_.indexOf(compound, test) > -1 ) {
             compoundParts.push(part);
+
+            return true;
         }
+
+        //break on first non compound word
+        return false;
     });
 
     //join compound parts with known last name
