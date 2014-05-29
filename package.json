@@ -1,6 +1,6 @@
 {
   "name": "humanparser",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Parse a human name string into salutation, first name, middle name, last name, suffix.",
   "main": "index.js",
   "scripts": {

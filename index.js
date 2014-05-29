@@ -72,3 +72,23 @@ parser.parseName = function (name) {
     //console.log('attrs:', JSON.stringify(attrs));
     return attrs;
 };
+
+parser.getFullestName = function(str){
+    var name = str
+        , names = [];
+
+    //find fullname from strings like 'Jon and Sue Doyle'
+    if ( name.indexOf('&') > -1 || name.toLowerCase().indexOf(' and ') > -1 ) {
+        names = name.split(/\s+(?:and|&)\s+/gi);
+
+        //pluck the name with the most parts (first, middle, last) from the array.
+        //will grab 'Sue Doyle' in 'Jon & Sue Anne Doyle'
+        if ( names.length ) {
+            name = names.sort(function(a, b) {
+                return b.split(/\s+/).length - a.split(/\s+/).length;
+            })[0];
+        }
+    }
+
+    return name;
+};
