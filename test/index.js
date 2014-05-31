@@ -113,7 +113,8 @@ describe('Parsing names', function() {
                 address: '123 W. Happy Day Blvd.',
                 city: 'San Francisco',
                 state: 'CA',
-                zip: '90501'
+                zip: '90501',
+                fullAddress: '123 W. Happy Day Blvd., San Francisco, CA  90501'
             }
         }, {
             address: '123 Happy Street, Honolulu, HI  65780',
@@ -121,7 +122,8 @@ describe('Parsing names', function() {
                 address: '123 Happy Street',
                 city: 'Honolulu',
                 state: 'HI',
-                zip: '65780'
+                zip: '65780',
+                fullAddress: '123 Happy Street, Honolulu, HI  65780'
             }
         }
     ];

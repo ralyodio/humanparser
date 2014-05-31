@@ -96,7 +96,7 @@ parser.getFullestName = function(str){
 parser.parseAddress = function(str){
     //416 W. Manchester Blvd., Inglewood, CA  90301
     var parts = str.split(/,\s+/).reverse()
-        , stateZip = []
+        , stateZip
         , city
         , address = {};
 
@@ -109,6 +109,7 @@ parser.parseAddress = function(str){
     address.city = city;
     address.state = stateZip[0];
     address.zip = stateZip[1];
+    address.fullAddress = str;
 
     return address;
 };
