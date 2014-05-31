@@ -125,6 +125,15 @@ describe('Parsing names', function() {
                 zip: '65780',
                 fullAddress: '123 Happy Street, Honolulu, HI  65780'
             }
+        }, {
+            address: '123 Happy Street, Suite #101, Honolulu, HI  65780',
+            result: {
+                address: '123 Happy Street, Suite #101',
+                city: 'Honolulu',
+                state: 'HI',
+                zip: '65780',
+                fullAddress: '123 Happy Street, Suite #101, Honolulu, HI  65780'
+            }
         }
     ];
 

@@ -105,7 +105,7 @@ parser.parseAddress = function(str){
 
     city = parts.shift();
 
-    address.address = parts.join(' ');
+    address.address = parts.reverse().join(', ');
     address.city = city;
     address.state = stateZip[0];
     address.zip = stateZip[1];
