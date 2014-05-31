@@ -87,12 +87,66 @@ describe('Parsing names', function() {
         }
     ];
 
-    // The tests have an English description...
-    it('Should parse all attributes', function() {
+    var fullest = [
+        {
+            name: 'John & Peggy Sue',
+            result: {
+                fullName: 'Peggy Sue'
+            }
+        }, {
+            name: 'John and Peggy Sue',
+            result: {
+                fullName: 'Peggy Sue'
+            }
+        }, {
+            name: 'Jane and Mr. William R. De La Cruz III',
+            result: {
+                fullName: 'Mr. William R. De La Cruz III'
+            }
+        }
+    ];
+
+    var addresses = [
+        {
+            address: '123 W. Happy Day Blvd., San Francisco, CA  90501',
+            result: {
+                address: '123 W. Happy Day Blvd.',
+                city: 'San Francisco',
+                state: 'CA',
+                zip: '90501'
+            }
+        }, {
+            address: '123 Happy Street, Honolulu, HI  65780',
+            result: {
+                address: '123 Happy Street',
+                city: 'Honolulu',
+                state: 'HI',
+                zip: '65780'
+            }
+        }
+    ];
+
+    it('Should parse all name attributes', function() {
         names.forEach(function(name, i, list){
             var parsed = human.parseName(name.name);
 
             expect(name.result).to.eql(parsed);
+        });
+    });
+
+    it('Should parse fullest name', function() {
+        fullest.forEach(function(name, i, list){
+            var fullName = human.getFullestName(name.name);
+
+            expect(name.result.fullName).to.eql(fullName);
+        });
+    });
+
+    it('Should parse all address attributes', function() {
+        addresses.forEach(function(address, i, list){
+            var parsed = human.parseAddress(address.address);
+
+            expect(address.result).to.eql(parsed);
         });
     });
 });
