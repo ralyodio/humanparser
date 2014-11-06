@@ -1,5 +1,6 @@
 humanparser
 =========
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/chovy/humanparser?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![NPM](https://nodei.co/npm/humanparser.png)](https://nodei.co/npm/humanparser/)
 
