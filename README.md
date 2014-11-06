@@ -1,10 +1,11 @@
 humanparser
 =========
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/chovy/humanparser?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![NPM](https://nodei.co/npm/humanparser.png)](https://nodei.co/npm/humanparser/)
 
 [![Build Status](https://travis-ci.org/chovy/humanparser.svg?branch=master)](https://travis-ci.org/chovy/humanparser) [![Requirements Status](https://requires.io/github/chovy/humanparser/requirements.png?branch=master)](https://requires.io/github/chovy/humanparser/requirements/?branch=master)
+
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/chovy/humanparser?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Parse a human name string into salutation, first name, middle name, last name, suffix.
 
