@@ -58,3 +58,7 @@ Parse a human name string into salutation, first name, middle name, last name, s
         zip: '65780',
         fullAddress: '123 Happy Street, Honolulu, HI  65780'
     }
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/chovy/humanparser/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
