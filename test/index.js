@@ -82,6 +82,30 @@ describe('Parsing names', function() {
                 lastName: 'Hearst',
                 fullName: 'William Hearst Jr'
             }
+        }, {
+            name: 'Hearst, William Jr',
+            result: {
+                firstName: 'William',
+                suffix: 'Jr',
+                lastName: 'Hearst',
+                fullName: 'William Hearst Jr'
+            }
+        }, {
+            name: 'Hearst, William Randolph',
+            result: {
+                firstName: 'William',
+                lastName: 'Hearst',
+                middleName: 'Randolph',
+                fullName: 'William Randolph Hearst'
+            }
+        }, {
+            name: 'Hearst, William, M.D.',
+            result: {
+                firstName: 'William',
+                suffix: 'M.D.',
+                lastName: 'Hearst',
+                fullName: 'William Hearst M.D.'
+            }
         }
     ];
 
