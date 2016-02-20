@@ -38,7 +38,6 @@ parser.parseName = function (name) {
 
         //location of first comma will separate last name from rest
         //join all parts leading to first comma as last name
-
         var lastName = _.reduce(parts, function (lastName, current, index) {
             if (!Array.isArray(lastName)) {
                 return lastName;
