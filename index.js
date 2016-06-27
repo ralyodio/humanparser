@@ -93,7 +93,7 @@ parser.parseName = function (name) {
 
         // test for compound last name, we reverse because middle name is last bit to be defined.
         // We already know lastname, so check next word if its part of a compound last name.
-        var revParts = parts.reverse()
+        var revParts = parts.slice(0).reverse()
             , compoundParts = [];
 
         _.every(revParts, function(part, i, all){
