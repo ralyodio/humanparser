@@ -68,6 +68,40 @@ describe('Parsing names', function() {
                 fullName: 'William De La Cruz'
             }
         }, {
+			name: 'Mr. William R. Hugh Calum De La Cruz III',
+			result: {
+				salutation: 'Mr.',
+				firstName: 'William',
+				suffix: 'III',
+				lastName: 'De La Cruz',
+				middleName: 'R. Hugh Calum',
+				fullName: 'Mr. William R. Hugh Calum De La Cruz III'
+			}
+		}, {
+			name: 'William A. B. De La Cruz',
+			result: {
+				firstName: 'William',
+				middleName: 'A. B.',
+				lastName: 'De La Cruz',
+				fullName: 'William A. B. De La Cruz'
+			}
+		}, {
+			name: 'James Hugh Calum Laurie',
+			result: {
+				firstName: 'James',
+				middleName: 'Hugh Calum',
+				lastName: 'Laurie',
+				fullName: 'James Hugh Calum Laurie'
+			}
+		}, {
+			name: 'Kiefer William Frederick Dempsey George Rufus Sutherland',
+			result: {
+				firstName: 'Kiefer',
+				middleName: 'William Frederick Dempsey George Rufus',
+				lastName: 'Sutherland',
+				fullName: 'Kiefer William Frederick Dempsey George Rufus Sutherland'
+			}
+		}, {
             name: 'William Hearst',
             result: {
                 firstName: 'William',
