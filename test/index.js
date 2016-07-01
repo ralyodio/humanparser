@@ -140,6 +140,20 @@ describe('Parsing names', function() {
                 lastName: 'Hearst',
                 fullName: 'William Hearst M.D.'
             }
+        }, {
+            name: 'William',
+            result: {
+                firstName: 'William',
+                lastName: '',
+                fullName: 'William'
+            }
+        }, {
+            name: '',
+            result: {
+                firstName: '',
+                lastName: '',
+                fullName: ''
+            }
         }
     ];
 
