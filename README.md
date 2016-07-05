@@ -17,8 +17,8 @@ Parse a human name string into salutation, first name, middle name, last name, s
     
 ### parse human name    
 
-    var fullName = 'Mr. William R. Hearst, III'
-        , attrs = human.parseName(fullName);
+    var fullName = 'Mr. William R. Hearst, III';
+		var attrs = human.parseName(fullName);
 
     console.log(attrs);
 
