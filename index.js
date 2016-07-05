@@ -3,12 +3,12 @@ var _ = require('underscore');
 var parser = module.exports = {};
 
 parser.parseName = function (name) {
-    var salutations = ['mr', 'master', 'mister', 'mrs', 'miss', 'ms', 'dr', 'prof', 'rev', 'fr', 'judge', 'honorable', 'hon']
-        , suffixes = ['i', 'ii', 'iii', 'iv', 'v', 'senior', 'junior', 'jr', 'sr', 'phd', 'apr', 'rph', 'pe', 'md', 'ma', 'dmd', 'cme']
-        , compound = ['vere', 'von', 'van', 'de', 'del', 'della', 'der', 'di', 'da', 'pietro', 'vanden', 'du', 'st.', 'st', 'la', 'lo', 'ter', 'bin', 'ibn', 'te', 'ten', 'op'];
+    var salutations = ['mr', 'master', 'mister', 'mrs', 'miss', 'ms', 'dr', 'prof', 'rev', 'fr', 'judge', 'honorable', 'hon'];
+    var suffixes = ['i', 'ii', 'iii', 'iv', 'v', 'senior', 'junior', 'jr', 'sr', 'phd', 'apr', 'rph', 'pe', 'md', 'ma', 'dmd', 'cme'];
+    var compound = ['vere', 'von', 'van', 'de', 'del', 'della', 'der', 'di', 'da', 'pietro', 'vanden', 'du', 'st.', 'st', 'la', 'lo', 'ter', 'bin', 'ibn', 'te', 'ten', 'op', 'ben'];
 
-    var parts = name.trim().split(/\s+/)
-        , attrs = {};
+    var parts = name.trim().split(/\s+/);
+		var attrs = {};
 
     if (!parts.length) {
         return attrs;
@@ -93,8 +93,8 @@ parser.parseName = function (name) {
 
         // test for compound last name, we reverse because middle name is last bit to be defined.
         // We already know lastname, so check next word if its part of a compound last name.
-        var revParts = parts.slice(0).reverse()
-            , compoundParts = [];
+        var revParts = parts.slice(0).reverse();
+				var compoundParts = [];
 
         _.every(revParts, function(part, i, all){
             var test = part.toLowerCase().replace(/\./g, '');
@@ -134,8 +134,8 @@ parser.parseName = function (name) {
 };
 
 parser.getFullestName = function(str){
-    var name = str
-        , names = [];
+    var name = str;
+		var names = [];
 
     //find fullname from strings like 'Jon and Sue Doyle'
     if ( name.indexOf('&') > -1 || name.toLowerCase().indexOf(' and ') > -1 ) {
@@ -155,10 +155,10 @@ parser.getFullestName = function(str){
 
 parser.parseAddress = function(str){
     //416 W. Manchester Blvd., Inglewood, CA  90301
-    var parts = str.split(/,\s+/).reverse()
-        , stateZip
-        , city
-        , address = {};
+    var parts = str.split(/,\s+/).reverse();
+		var stateZip;
+		var city;
+		var address = {};
 
     stateZip = parts[0].split(/\s+/);
     parts.shift();

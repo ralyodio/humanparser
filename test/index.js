@@ -8,9 +8,9 @@
 //John Doe, Senior Whatever
 
 
-var chai = require('chai')
-    , expect = chai.expect
-    , human = require('..');
+var chai = require('chai');
+var expect = chai.expect;
+var human = require('..');
 
 
 // `describe` makes a "suite" of tests; think of them as a group.
