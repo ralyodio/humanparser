@@ -89,7 +89,7 @@ parser.parseName = function (name) {
             attrs.firstName = parts.shift();
         }
 
-        attrs.lastName  = parts.length ? parts.pop() : ''; // set `lastName` to empty string if not provided
+        attrs.lastName  = parts.length ? parts.pop() : '';
 
         // test for compound last name, we reverse because middle name is last bit to be defined.
         // We already know lastname, so check next word if its part of a compound last name.
