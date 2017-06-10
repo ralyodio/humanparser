@@ -91,12 +91,20 @@ parser.parseName = function (name) {
 
 		if (parts.length > 1 && _.indexOf(salutations, _.first(parts).toLowerCase().replace(/\./g, '')) > -1) {
 			attrs.salutation = parts.shift();
-			attrs.firstName = parts.shift();
+
+			// if we have a salutation assume 2nd part is last name
+			if (parts.length === 1 ) {
+				attrs.lastName = parts.shift();
+			} else {
+				attrs.firstName = parts.shift();
+			}
 		} else {
 			attrs.firstName = parts.shift();
 		}
 
-		attrs.lastName = parts.length ? parts.pop() : '';
+		if (!attrs.lastName) {
+			attrs.lastName = parts.length ? parts.pop() : '';
+		}
 
 		// test for compound last name, we reverse because middle name is last bit to be defined.
 		// We already know lastname, so check next word if its part of a compound last name.
