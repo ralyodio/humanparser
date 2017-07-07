@@ -178,7 +178,16 @@ describe('Parsing names', function () {
 				lastName: '',
 				fullName: ''
 			}
-		}
+		}, {
+      name: 'Tuan Syed Azmin Nur',
+      result: {
+        salutation: 'Tuan',
+        firstName: 'Syed',
+        middleName: 'Azmin',
+        lastName: 'Nur',
+        fullName: 'Tuan Syed Azmin Nur'
+      }
+    }
 	];
 
 	var fullest = [
