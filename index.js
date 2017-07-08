@@ -169,6 +169,7 @@ parser.getFullestName = function (str) {
 };
 
 parser.parseAddress = function (str) {
+  str = str.replace(/\n/gi, ', ');
 	//416 W. Manchester Blvd., Inglewood, CA  90301
 	var parts = str.split(/,\s+/).reverse();
 	var stateZip;

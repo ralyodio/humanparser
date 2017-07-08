@@ -236,6 +236,16 @@ describe('Parsing names', function () {
 				state: 'HI',
 				zip: '65780',
 				fullAddress: '123 Happy Street, Suite #101, Honolulu, HI  65780'
+      }
+		}, {
+      // parse newlines as commas
+			address: '1234 California St.\nApt. #594\nSan Francisco, CA 94109',
+			result: {
+				address: '1234 California St., Apt. #594',
+				city: 'San Francisco',
+				state: 'CA',
+				zip: '94109',
+				fullAddress: '1234 California St., Apt. #594, San Francisco, CA 94109'
 			}
 		}
 	];
