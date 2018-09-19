@@ -29,10 +29,10 @@
     "author": "Anthony Ettinger (chovy)",
     "license": "MIT",
     "dependencies": {
-        "underscore": "~1.6.0"
+        "underscore": "^1.9.0"
     },
     "devDependencies": {
-        "chai": "~1.9.1",
-        "mocha": "~1.19.0"
+        "chai": "^4.1.2",
+        "mocha": "^5.2.0"
     }
 }
