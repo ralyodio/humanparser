@@ -8,15 +8,14 @@
 //John Doe, Senior Whatever
 
 
-var chai = require('chai');
-var expect = chai.expect;
-var human = require('..');
+const chai = require('chai');
+const expect = chai.expect;
+const human = require('..');
 
 
 // `describe` makes a "suite" of tests; think of them as a group.
-describe('Parsing names', function () {
-
-	var names = [
+describe('Parsing names', () => {
+	const names = [
 		{
 			name: 'Mr. William R. Hearst, III',
 			result: {
@@ -197,7 +196,7 @@ describe('Parsing names', function () {
     }
 	];
 
-	var fullest = [
+	const fullest = [
 		{
 			name: 'John & Peggy Sue',
 			result: {
@@ -216,7 +215,7 @@ describe('Parsing names', function () {
 		}
 	];
 
-	var addresses = [
+	const addresses = [
 		{
 			address: '123 W. Happy Day Blvd., San Francisco, CA  90501',
 			result: {
@@ -257,25 +256,25 @@ describe('Parsing names', function () {
 		}
 	];
 
-	it('Should parse all name attributes', function () {
-		names.forEach(function (name, i, list) {
-			var parsed = human.parseName(name.name);
+	it('Should parse all name attributes', () => {
+		names.forEach((name, i, list) => {
+			const parsed = human.parseName(name.name);
 
 			expect(name.result).to.eql(parsed);
 		});
 	});
 
-	it('Should parse fullest name', function () {
-		fullest.forEach(function (name, i, list) {
-			var fullName = human.getFullestName(name.name);
+	it('Should parse fullest name', () => {
+		fullest.forEach((name, i, list) => {
+			const fullName = human.getFullestName(name.name);
 
 			expect(name.result.fullName).to.eql(fullName);
 		});
 	});
 
-	it('Should parse all address attributes', function () {
-		addresses.forEach(function (address, i, list) {
-			var parsed = human.parseAddress(address.address);
+	it('Should parse all address attributes', () => {
+		addresses.forEach((address, i, list) => {
+			const parsed = human.parseAddress(address.address);
 
 			expect(address.result).to.eql(parsed);
 		});
