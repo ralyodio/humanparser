@@ -156,20 +156,27 @@ describe('Parsing names', function () {
 				lastName: '',
 				fullName: 'William'
 			}
-		},{
+		}, {
 			name: 'Mr. Hearst',
 			result: {
 				salutation: 'Mr.',
 				lastName: 'Hearst',
 				fullName: 'Mr. Hearst'
 			}
-		},{
+		}, {
 			name: 'Mr. Hearst Jr.',
 			result: {
 				salutation: 'Mr.',
 				lastName: 'Hearst',
 				suffix: 'Jr.',
 				fullName: 'Mr. Hearst Jr.'
+			}
+		}, {
+			name: 'hussain al robeh',
+			result: {
+				firstName: 'hussain',
+				lastName: 'al robeh',
+				fullName: 'hussain al robeh'
 			}
 		}, {
 			name: '',
