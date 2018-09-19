@@ -13,12 +13,12 @@ Parse a human name string into salutation, first name, middle name, last name, s
 
 ## Usage
 
-    var human = require('humanparser');
+    const human = require('humanparser');
     
 ### parse human name    
 
-    var fullName = 'Mr. William R. Hearst, III';
-		var attrs = human.parseName(fullName);
+    const fullName = 'Mr. William R. Hearst, III';
+	const attrs = human.parseName(fullName);
 
     console.log(attrs);
 
@@ -35,8 +35,8 @@ Parse a human name string into salutation, first name, middle name, last name, s
       
 ### get fullest name in string
 
-    var name = 'John & Peggy Sue';
-    var fullName = human.getFullestName(name);
+    const name = 'John & Peggy Sue';
+    const fullName = human.getFullestName(name);
 
     //produces the following output
     {
@@ -45,8 +45,8 @@ Parse a human name string into salutation, first name, middle name, last name, s
       
 ### parse address
 
-    var address = '123 Happy Street, Honolulu, HI  65780';
-    var parsed = human.parseAddress(address);
+    const address = '123 Happy Street, Honolulu, HI  65780';
+    const parsed = human.parseAddress(address);
     
     //produces the following output    
     {
