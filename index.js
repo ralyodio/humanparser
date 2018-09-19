@@ -1,14 +1,13 @@
-var _ = require('underscore');
-
-var parser = module.exports = {};
+const _ = require('underscore');
+const parser = module.exports = {};
 
 parser.parseName = function (name) {
-	var salutations = ['mr', 'master', 'mister', 'mrs', 'miss', 'ms', 'dr', 'prof', 'rev', 'fr', 'judge', 'honorable', 'hon', 'tuan', 'sr', 'srta', 'br', 'pr', 'mx', 'sra'];
-	var suffixes = ['i', 'ii', 'iii', 'iv', 'v', 'senior', 'junior', 'jr', 'sr', 'phd', 'apr', 'rph', 'pe', 'md', 'ma', 'dmd', 'cme'];
-	var compound = ['vere', 'von', 'van', 'de', 'del', 'della', 'der', 'di', 'da', 'pietro', 'vanden', 'du', 'st.', 'st', 'la', 'lo', 'ter', 'bin', 'ibn', 'te', 'ten', 'op', 'ben', 'al'];
+	const salutations = ['mr', 'master', 'mister', 'mrs', 'miss', 'ms', 'dr', 'prof', 'rev', 'fr', 'judge', 'honorable', 'hon', 'tuan', 'sr', 'srta', 'br', 'pr', 'mx', 'sra'];
+	const suffixes = ['i', 'ii', 'iii', 'iv', 'v', 'senior', 'junior', 'jr', 'sr', 'phd', 'apr', 'rph', 'pe', 'md', 'ma', 'dmd', 'cme'];
+	const compound = ['vere', 'von', 'van', 'de', 'del', 'della', 'der', 'di', 'da', 'pietro', 'vanden', 'du', 'st.', 'st', 'la', 'lo', 'ter', 'bin', 'ibn', 'te', 'ten', 'op', 'ben', 'al'];
 
-	var parts = name.trim().split(/\s+/);
-	var attrs = {};
+	let parts = name.trim().split(/\s+/);
+	const attrs = {};
 
 	if (!parts.length) {
 		return attrs;
@@ -25,7 +24,7 @@ parser.parseName = function (name) {
 	}
 
 	//look for a comma to know we have last name first format
-	var firstNameFirstFormat = _.every(parts, function (part) {
+	const firstNameFirstFormat = _.every(parts, function (part) {
 		return part.indexOf(',') === -1;
 	})
 
@@ -34,11 +33,11 @@ parser.parseName = function (name) {
 		//assuming salutations are never used in this format
 
 		//tracker variable for where first name begins in parts array
-		var firstNameIndex;
+		let firstNameIndex;
 
 		//location of first comma will separate last name from rest
 		//join all parts leading to first comma as last name
-		var lastName = _.reduce(parts, function (lastName, current, index) {
+		const lastName = _.reduce(parts, (lastName, current, index) => {
 			if (!Array.isArray(lastName)) {
 				return lastName;
 			}
@@ -71,7 +70,7 @@ parser.parseName = function (name) {
 		}
 
 		//create full name from attrs object
-		var nameWords = [];
+		const nameWords = [];
 		if (attrs.firstName) {
 			nameWords.push(attrs.firstName);
 		}
@@ -108,11 +107,11 @@ parser.parseName = function (name) {
 
 		// test for compound last name, we reverse because middle name is last bit to be defined.
 		// We already know lastname, so check next word if its part of a compound last name.
-		var revParts = parts.slice(0).reverse();
-		var compoundParts = [];
+		const revParts = parts.slice(0).reverse();
+		const compoundParts = [];
 
-		_.every(revParts, function (part, i, all) {
-			var test = part.toLowerCase().replace(/\./g, '');
+		_.every(revParts, (part, i, all) => {
+			const test = part.toLowerCase().replace(/\./g, '');
 
 			if (_.indexOf(compound, test) > -1) {
 				compoundParts.push(part);
@@ -148,9 +147,9 @@ parser.parseName = function (name) {
 	return attrs;
 };
 
-parser.getFullestName = function (str) {
-	var name = str;
-	var names = [];
+parser.getFullestName = (str) => {
+	let name = str;
+	let names = [];
 
 	//find fullname from strings like 'Jon and Sue Doyle'
 	if (name.indexOf('&') > -1 || name.toLowerCase().indexOf(' and ') > -1) {
@@ -168,13 +167,13 @@ parser.getFullestName = function (str) {
 	return name;
 };
 
-parser.parseAddress = function (str) {
+parser.parseAddress = (str) => {
   str = str.replace(/\n/gi, ', ');
 	//416 W. Manchester Blvd., Inglewood, CA  90301
-	var parts = str.split(/,\s+/).reverse();
-	var stateZip;
-	var city;
-	var address = {};
+	const parts = str.split(/,\s+/).reverse();
+	let stateZip;
+	let city;
+	const address = {};
 
 	stateZip = parts[0].split(/\s+/);
 	parts.shift();
