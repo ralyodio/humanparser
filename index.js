@@ -97,7 +97,7 @@ parser.parseName = function (name) {
 			attrs.salutation = parts.shift();
 
 			// if we have a salutation assume 2nd part is last name
-			if (parts.length === 1 ) {
+			if (parts.length === 1) {
 				attrs.lastName = parts.shift();
 			} else {
 				attrs.firstName = parts.shift();
@@ -173,7 +173,7 @@ parser.getFullestName = (str) => {
 };
 
 parser.parseAddress = (str) => {
-  str = str.replace(/\n/gi, ', ');
+	str = str.replace(/\n/gi, ', ');
 	//416 W. Manchester Blvd., Inglewood, CA  90301
 	const parts = str.split(/,\s+/).reverse();
 	let stateZip;
