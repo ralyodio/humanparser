@@ -1,6 +1,6 @@
 {
     "name": "humanparser",
-    "version": "1.7.0",
+    "version": "1.8.0",
     "description": "Parse a human name string into salutation, first name, middle name, last name, suffix. Parse an address into address, city, state, zip",
     "main": "index.js",
     "scripts": {
@@ -28,9 +28,7 @@
     ],
     "author": "Anthony Ettinger (chovy)",
     "license": "MIT",
-    "dependencies": {
-        "underscore": "^1.9.0"
-    },
+    "dependencies": {},
     "devDependencies": {
         "chai": "^4.1.2",
         "mocha": "^5.2.0"
