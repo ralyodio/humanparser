@@ -178,6 +178,23 @@ describe('Parsing names', () => {
 				fullName: 'hussain al robeh'
 			}
 		}, {
+			name: 'EUGENE L. NATH,JR.',
+			result: {
+				firstName: 'EUGENE',
+				middleName: 'L.',
+				lastName: 'NATH',
+				suffix: 'JR.',
+				fullName: 'EUGENE L. NATH,JR.'
+			}
+		}, {
+			name: 'LEE TANT , JR',
+			result: {
+				firstName: 'LEE',
+				lastName: 'TANT',
+				suffix: 'JR',
+				fullName: 'LEE TANT , JR'
+			}
+		}, {
 			name: '',
 			result: {
 				firstName: '',
