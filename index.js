@@ -1,5 +1,10 @@
-const _ = require('underscore');
 const parser = module.exports = {};
+
+Array.prototype.diff = function (a2) {
+	return this.concat(a2).filter((val, index, arr) => {
+		return arr.indexOf(val) === arr.lastIndexOf(val);
+	});
+};
 
 parser.parseName = function (name) {
 	const salutations = ['mr', 'master', 'mister', 'mrs', 'miss', 'ms', 'dr', 'prof', 'rev', 'fr', 'judge', 'honorable', 'hon', 'tuan', 'sr', 'srta', 'br', 'pr', 'mx', 'sra'];
@@ -18,15 +23,15 @@ parser.parseName = function (name) {
 	}
 
 	//handle suffix first always, remove trailing comma if there is one
-	if (parts.length > 1 && _.indexOf(suffixes, _.last(parts).toLowerCase().replace(/\./g, '')) > -1) {
+	if (parts.length > 1 && suffixes.indexOf(parts[parts.length - 1].toLowerCase().replace(/\./g, '')) > -1) {
 		attrs.suffix = parts.pop();
-		parts[parts.length - 1] = _.last(parts).replace(',', '');
+		parts[parts.length - 1] = parts[parts.length - 1].replace(',', '');
 	}
 
 	//look for a comma to know we have last name first format
-	const firstNameFirstFormat = _.every(parts, function (part) {
+	const firstNameFirstFormat = parts.every(part => {
 		return part.indexOf(',') === -1;
-	})
+	});
 
 	if (!firstNameFirstFormat) {
 		//last name first format
@@ -37,18 +42,18 @@ parser.parseName = function (name) {
 
 		//location of first comma will separate last name from rest
 		//join all parts leading to first comma as last name
-		const lastName = _.reduce(parts, (lastName, current, index) => {
+		const lastName = parts.reduce((lastName, current, index) => {
 			if (!Array.isArray(lastName)) {
 				return lastName;
 			}
 			if (current.indexOf(',') === -1) {
-				lastName.push(current)
+				lastName.push(current);
 				return lastName;
 			} else {
 				current = current.replace(',', '');
 
 				// handle case where suffix is included in part of last name (ie: 'Hearst Jr., Willian Randolph')
-				if (_.indexOf(suffixes, current.toLowerCase().replace(/\./g, '')) > -1) {
+				if (suffixes.indexOf(current.toLowerCase().replace(/\./g, '')) > -1) {
 					attrs.suffix = current;
 				} else {
 					lastName.push(current);
@@ -88,7 +93,7 @@ parser.parseName = function (name) {
 		//first name first format
 
 
-		if (parts.length > 1 && _.indexOf(salutations, _.first(parts).toLowerCase().replace(/\./g, '')) > -1) {
+		if (parts.length > 1 && salutations.indexOf(parts[0].toLowerCase().replace(/\./g, '')) > -1) {
 			attrs.salutation = parts.shift();
 
 			// if we have a salutation assume 2nd part is last name
@@ -110,10 +115,10 @@ parser.parseName = function (name) {
 		const revParts = parts.slice(0).reverse();
 		const compoundParts = [];
 
-		_.every(revParts, (part, i, all) => {
+		revParts.every(part => {
 			const test = part.toLowerCase().replace(/\./g, '');
 
-			if (_.indexOf(compound, test) > -1) {
+			if (compound.indexOf(test) > -1) {
 				compoundParts.push(part);
 
 				return true;
@@ -127,7 +132,7 @@ parser.parseName = function (name) {
 		if (compoundParts.length) {
 			attrs.lastName = compoundParts.reverse().join(' ') + ' ' + attrs.lastName;
 
-			parts = _.difference(parts, compoundParts);
+			parts = parts.diff(compoundParts);
 		}
 
 		if (parts.length) {
