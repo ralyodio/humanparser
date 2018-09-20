@@ -11,7 +11,11 @@ parser.parseName = function (name) {
 	const suffixes = ['i', 'ii', 'iii', 'iv', 'v', 'senior', 'junior', 'jr', 'sr', 'phd', 'apr', 'rph', 'pe', 'md', 'ma', 'dmd', 'cme'];
 	const compound = ['vere', 'von', 'van', 'de', 'del', 'della', 'der', 'di', 'da', 'pietro', 'vanden', 'du', 'st.', 'st', 'la', 'lo', 'ter', 'bin', 'ibn', 'te', 'ten', 'op', 'ben', 'al'];
 
-	let parts = name.trim().split(/\s+/);
+	let parts = name
+		.trim()
+		.replace(/\b,\b/, ', ') // fix name,suffix -> name, suffix
+		.split(/\s+/);
+	
 	const attrs = {};
 
 	if (!parts.length) {
