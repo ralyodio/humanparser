@@ -187,6 +187,14 @@ describe('Parsing names', () => {
 				fullName: 'EUGENE L. NATH,JR.'
 			}
 		}, {
+			name: 'LEE TANT , JR',
+			result: {
+				firstName: 'LEE',
+				lastName: 'TANT',
+				suffix: 'JR',
+				fullName: 'LEE TANT , JR'
+			}
+		}, {
 			name: '',
 			result: {
 				firstName: '',

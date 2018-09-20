@@ -13,7 +13,8 @@ parser.parseName = function (name) {
 
 	let parts = name
 		.trim()
-		.replace(/\b,\b/, ', ') // fix name,suffix -> name, suffix
+		.replace(/\b\s+(,\s+)\b/, '$1') // fix name , suffix -> name, suffix
+		.replace(/\b,\b/, ', ')         // fix name,suffix -> name, suffix
 		.split(/\s+/);
 	
 	const attrs = {};
