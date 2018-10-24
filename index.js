@@ -1,13 +1,15 @@
 const parser = module.exports = {};
 
-Object.defineProperty(Array.prototype, 'diff', {
-	enumerable: false,
-	value: function(a2) {
-		return this.concat(a2).filter((val, index, arr) => {
-			return arr.indexOf(val) === arr.lastIndexOf(val);
-		});
-	}
-});
+if (!Array.prototype.hasOwnProperty('diff')) {
+	Object.defineProperty(Array.prototype, 'diff', {
+		enumerable: false,
+		value: function(a2) {
+			return this.concat(a2).filter((val, index, arr) => {
+				return arr.indexOf(val) === arr.lastIndexOf(val);
+			});
+		}
+	});
+}
 
 parser.parseName = function (name) {
 	const salutations = ['mr', 'master', 'mister', 'mrs', 'miss', 'ms', 'dr', 'prof', 'rev', 'fr', 'judge', 'honorable', 'hon', 'tuan', 'sr', 'srta', 'br', 'pr', 'mx', 'sra'];
