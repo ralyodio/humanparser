@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "mocha",
-        "postversion": "git push --follow-tags"
+        "postversion": "git push --follow-tags && npm publish --access public"
     },
     "repository": {
         "type": "git",
