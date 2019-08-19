@@ -2,11 +2,3 @@ language: node_js
 node_js:
 - 8
 - 10
-deploy:
-  provider: npm
-  email: emiliano.heyns@iris-advies.com
-  api_key:
-    secure: TdN/uMk+7XJPl/WzRbG68lLrM06Op3dZq/QKCmg/FUMVbipv+KQf34oBOgssTANhl1iA/fPmSwPcAuRGrzLF782J0SadSOVXOnGmpti0/CyehgHBx6kU9qBnz3SDrfNu8jKYIHKVeT0p73aizzqOyoihIrB+vckOlBSYkVRKXFeLQne2FjyucVRQqhDdRsD4mekMW0gKT18nLqSdNmgdy8hCxVTmNL7dsvIBHjpSYZWc5m8oFRXDyJyMuoknHKmKVpu+PoFmISiXfiZ/f9wlcxcUAsth0Z3FhXCniJOzj+ZZYrmZnexAOTtBQVUuYBpP4RCIEzpYin9hCx4216oVw3K4CamoBW9ohZI5PpVeJB8XcJD8Og+wlpRvvLC26VMgbkUdB9jmVMFjdKCzRvWjD4+yDfp5F1alil+YVDU5WssB90N6Iz1AGyhEMWY5l+brfXONnY2Eo+6/rBik7yS+UxpKllbJby6ZTnVWNaSBln70VMztSQNtXjILjt3iXhOAOKg8niNQwcJOBhOjfQwQFjq7jgf+YYplzP8FSLw5dw4AxPckGjdTthh0SbzvOhcryP+jVlsX1PJfcfFM2lR/W58Rbvlop+Qv/e5IAk7CedJyO6cK7Kk64vBqzvzqKVoq/R9UcRBoVNW0F6Z3WhZss1cgJKvZ2vJIt+X3IEosLTA=
-  on:
-    tags: true
-    repo: retorquere/humanparser
