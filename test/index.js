@@ -27,6 +27,13 @@ describe('Parsing names', () => {
 				fullName: 'Mr. William R. Hearst, III'
 			}
 		}, {
+			name: '"Franců Franců", Jan',
+			result: {
+				firstName: 'Jan',
+				lastName: 'Franců Franců',
+        fullName: 'Jan Franců Franců',
+			}
+		}, {
 			name: 'William Randolph Hearst',
 			result: {
 				firstName: 'William',
