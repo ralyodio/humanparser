@@ -30,8 +30,8 @@ describe('Parsing names', () => {
 			name: '"Franců Franců", Jan',
 			result: {
 				firstName: 'Jan',
-				lastName: '"Franců Franců"',
-        fullName: 'Jan "Franců Franců"',
+				lastName: 'Franců Franců',
+        fullName: 'Jan Franců Franců',
 			}
 		}, {
 			name: 'William Randolph Hearst',
