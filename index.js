@@ -1,13 +1,8 @@
 const parser = module.exports = {};
 
-if (!Array.prototype.hasOwnProperty('diff')) {
-	Object.defineProperty(Array.prototype, 'diff', {
-		enumerable: false,
-		value: function(a2) {
-			return this.concat(a2).filter((val, index, arr) => {
-				return arr.indexOf(val) === arr.lastIndexOf(val);
-			});
-		}
+function diff(a1, a2) {
+	return a1.concat(a2).filter((val, index, arr) => {
+		return arr.indexOf(val) === arr.lastIndexOf(val);
 	});
 }
 
@@ -142,7 +137,7 @@ parser.parseName = function (name) {
 		if (compoundParts.length) {
 			attrs.lastName = compoundParts.reverse().join(' ') + ' ' + attrs.lastName;
 
-			parts = parts.diff(compoundParts);
+			parts = diff(parts, compoundParts);
 		}
 
 		if (parts.length) {
