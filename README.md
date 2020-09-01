@@ -25,7 +25,7 @@ Parse a human name string into salutation, first name, middle name, last name, s
     //produces the following output
     
     { 
-        saluation: 'Mr.',
+        salutation: 'Mr.',
         firstName: 'William',
         suffix: 'III',
         lastName: 'Hearst',
