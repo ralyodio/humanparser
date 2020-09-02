@@ -1,6 +1,6 @@
 {
     "name": "humanparser",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "description": "Parse a human name string into salutation, first name, middle name, last name, suffix. Parse an address into address, city, state, zip",
     "main": "index.js",
     "scripts": {
@@ -32,6 +32,6 @@
     "devDependencies": {
         "chai": "^4.2.0",
         "mocha": "^5.2.0",
-				"minimist": ">=0.2.1"
+        "minimist": ">=0.2.1"
     }
 }
