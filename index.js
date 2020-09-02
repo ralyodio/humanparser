@@ -6,17 +6,18 @@ function diff(a1, a2) {
 	});
 }
 
-parser.parseName = function (name) {
+parser.parseName = function (name, ignoreSuffix) {
+	if (!ignoreSuffix) ignoreSuffix = []
 	const salutations = ['mr', 'master', 'mister', 'mrs', 'miss', 'ms', 'dr', 'prof', 'rev', 'fr', 'judge', 'honorable', 'hon', 'tuan', 'sr', 'srta', 'br', 'pr', 'mx', 'sra'];
-	const suffixes = ['i', 'ii', 'iii', 'iv', 'v', 'senior', 'junior', 'jr', 'sr', 'phd', 'apr', 'rph', 'pe', 'md', 'ma', 'dmd', 'cme', 'qc', 'kc'];
-	const compound = ['vere', 'von', 'van', 'de', 'del', 'della', 'der', 'di', 'da', 'pietro', 'vanden', 'du', 'st.', 'st', 'la', 'lo', 'ter', 'bin', 'ibn', 'te', 'ten', 'op', 'ben', 'al'];
+	const suffixes = ['i', 'ii', 'iii', 'iv', 'v', 'senior', 'junior', 'jr', 'sr', 'phd', 'apr', 'rph', 'pe', 'md', 'ma', 'dmd', 'cme', 'qc', 'kc'].filter(suffix => !ignoreSuffix.includes(suffix));
+	const compound = ['vere', 'von', 'van', 'de', 'del', 'della', 'der', 'den', 'di', 'da', 'pietro', 'vanden', 'du', 'st.', 'st', 'la', 'lo', 'ter', 'bin', 'ibn', 'te', 'ten', 'op', 'ben', 'al'];
 
 	let parts = name
 		.trim()
 		.replace(/\b\s+(,\s+)\b/, '$1') // fix name , suffix -> name, suffix
 		.replace(/\b,\b/, ', ')         // fix name,suffix -> name, suffix
-		.split(/\s+/);
-
+	// look for quoted compound names
+	parts = (parts.match(/[^\s"]+|"[^"]+"/g) || parts.split(/\s+/)).map(n => n.match(/^".*"$/) ? n.slice(1, -1) : n)
 	const attrs = {};
 
 	if (!parts.length) {
@@ -154,6 +155,10 @@ parser.parseName = function (name) {
 
 	}
 	//console.log('attrs:', JSON.stringify(attrs));
+
+	for (const [k, v] of Object.entries(attrs)) {
+		attrs[k] = v.trim()
+	}
 	return attrs;
 };
 

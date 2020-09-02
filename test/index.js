@@ -27,6 +27,22 @@ describe('Parsing names', () => {
 				fullName: 'Mr. William R. Hearst, III'
 			}
 		}, {
+			name: '"Franců Franců", Jan',
+			result: {
+				firstName: 'Jan',
+				lastName: 'Franců Franců',
+				fullName: 'Jan Franců Franců',
+			}
+		}, {
+			name: 'McDermott, Drew V.',
+			ignoreSuffix: [ 'i', 'v' ],
+			result: {
+				firstName: 'Drew',
+				fullName: 'Drew V. McDermott',
+				lastName: 'McDermott',
+				middleName: 'V.'
+			}
+		}, {
 			name: 'William Randolph Hearst',
 			result: {
 				firstName: 'William',
@@ -275,7 +291,7 @@ describe('Parsing names', () => {
 
 	it('Should parse all name attributes', () => {
 		names.forEach((name, i, list) => {
-			const parsed = human.parseName(name.name);
+			const parsed = human.parseName(name.name, name.ignoreSuffix);
 
 			expect(name.result).to.eql(parsed);
 		});
