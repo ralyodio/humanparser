@@ -31,17 +31,17 @@ describe('Parsing names', () => {
 			result: {
 				firstName: 'Jan',
 				lastName: 'Franců Franců',
-        fullName: 'Jan Franců Franců',
+				fullName: 'Jan Franců Franců',
 			}
 		}, {
-      name: 'McDermott, Drew V.',
-      ignoreSuffix: [ 'i', 'v' ],
-      result: {
-        firstName: 'Drew',
-        fullName: 'Drew V. McDermott',
-        lastName: 'McDermott',
-        middleName: 'V.'
-      }
+			name: 'McDermott, Drew V.',
+			ignoreSuffix: [ 'i', 'v' ],
+			result: {
+				firstName: 'Drew',
+				fullName: 'Drew V. McDermott',
+				lastName: 'McDermott',
+				middleName: 'V.'
+			}
 		}, {
 			name: 'William Randolph Hearst',
 			result: {

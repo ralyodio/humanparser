@@ -4,12 +4,11 @@
     "description": "Parse a human name string into salutation, first name, middle name, last name, suffix. Parse an address into address, city, state, zip",
     "main": "index.js",
     "scripts": {
-        "test": "mocha",
-        "postversion": "git push --follow-tags && npm publish --access public"
+        "test": "mocha"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/retorquere/humanparser.git"
+        "url": "git@github.com:chovy/humanparser.git"
     },
     "keywords": [
         "human",
