@@ -9,7 +9,7 @@ function diff(a1, a2) {
 parser.parseName = function (name, ignoreSuffix) {
 	if (!ignoreSuffix) ignoreSuffix = []
 	const salutations = ['mr', 'master', 'mister', 'mrs', 'miss', 'ms', 'dr', 'prof', 'rev', 'fr', 'judge', 'honorable', 'hon', 'tuan', 'sr', 'srta', 'br', 'pr', 'mx', 'sra'];
-	const suffixes = ['i', 'ii', 'iii', 'iv', 'v', 'senior', 'junior', 'jr', 'sr', 'phd', 'apr', 'rph', 'pe', 'md', 'ma', 'dmd', 'cme', 'qc', 'kc'].filter(suffix => !ignoreSuffix.includes(suffix));
+	const suffixes = ['i', 'ii', 'iii', 'iv', 'v', 'senior', 'junior', 'jr', 'sr', 'phd', 'apr', 'rph', 'pe', 'md', 'ma', 'dmd', 'cme', 'qc', 'kc'].filter(suffix => ignoreSuffix.indexOf(suffix) === -1);
 	const compound = ['vere', 'von', 'van', 'de', 'del', 'della', 'der', 'den', 'di', 'da', 'pietro', 'vanden', 'du', 'st.', 'st', 'la', 'lo', 'ter', 'bin', 'ibn', 'te', 'ten', 'op', 'ben', 'al'];
 
 	let parts = name
@@ -156,8 +156,8 @@ parser.parseName = function (name, ignoreSuffix) {
 	}
 	//console.log('attrs:', JSON.stringify(attrs));
 
-	for (const [k, v] of Object.entries(attrs)) {
-		attrs[k] = v.trim()
+	for (const k of Object.keys(attrs)) {
+		attrs[k] = attrs[k].trim();
 	}
 	return attrs;
 };
