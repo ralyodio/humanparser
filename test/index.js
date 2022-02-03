@@ -248,6 +248,79 @@ describe('Parsing names', () => {
 		}
 	];
 
+	const extras = [
+		{
+			name: 'John Jones 3rd',
+			opts: {
+				extraSuffixes: ['3rd']
+			},
+			result: {
+				firstName: 'John',
+				lastName: 'Jones',
+				suffix: '3rd',
+				fullName: 'John Jones 3rd'
+			}
+		},
+		{
+			name: 'Doc Emmett Brown',
+			opts: {
+				extraSalutations: ['Doc']
+			},
+			result: {
+				firstName: 'Emmett',
+				lastName: 'Brown',
+				salutation: 'Doc',
+				fullName: 'Doc Emmett Brown'
+			}
+		},
+		{
+			name: 'Marcy Tre Lane',
+			opts: {
+				extraCompound: ['Tre']
+			},
+			result: {
+				firstName: 'Marcy',
+				lastName: 'Tre Lane',
+				fullName: 'Marcy Tre Lane'
+			}
+		},
+		{
+			name: 'John Jones Jr',
+			opts: {
+				ignoreSuffix: ['Jr']
+			},
+			result: {
+				firstName: 'John',
+				middleName: 'Jones',
+				lastName: 'Jr',
+				fullName: 'John Jones Jr'
+			}
+		},
+		{
+			name: 'Mister T',
+			opts: {
+				ignoreSalutation: ['Mister']
+			},
+			result: {
+				firstName: 'Mister',
+				lastName: 'T',
+				fullName: 'Mister T'
+			}
+		},
+		{
+			name: 'William De La Cruz',
+			opts: {
+				ignoreCompound: ['De']
+			},
+			result: {
+				firstName: 'William',
+				lastName: 'La Cruz',
+				middleName: 'De',
+				fullName: 'William De La Cruz'
+			}
+		}
+	];
+
 	const addresses = [
 		{
 			address: '123 W. Happy Day Blvd., San Francisco, CA  90501',
@@ -302,6 +375,14 @@ describe('Parsing names', () => {
 			const fullName = human.getFullestName(name.name);
 
 			expect(name.result.fullName).to.eql(fullName);
+		});
+	});
+
+	it('Should parse names using extra configuration', () => {
+		extras.forEach((name, i, list) => {
+			const parsed = human.parseName(name.name, name.opts);
+
+			expect(name.result).to.eql(parsed);
 		});
 	});
 
